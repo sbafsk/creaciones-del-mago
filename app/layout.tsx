@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Syne } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import { I18nProvider } from "@/hooks/use-i18n"
 import { SkipLink } from "@/components/skip-link"
@@ -10,9 +10,10 @@ import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import "./globals.css"
 
-const inter = Inter({
+const syne = Syne({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-syne",
+  weight: ["400", "500", "600", "700", "800"],
 })
 
 export const metadata: Metadata = {
@@ -27,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" className={`${inter.variable} antialiased`}>
+    <html lang="es" className={`${syne.variable} antialiased`}>
       <body>
         <ErrorBoundary>
           <I18nProvider>

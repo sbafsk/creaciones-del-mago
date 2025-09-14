@@ -3,7 +3,7 @@ v0 UI prompt v3 for “Creaciones del Mago” — context-adapted to current bui
 Use this in v0.app. Continue from the existing codebase; generate only what’s missing or requires improvement per acceptance criteria. Don’t recreate components already implemented unless specified below.
 
 Current agent context (already built per last run)
-- Core layout with Header/Nav and Footer (responsive, wand logo, violet/cyan theme).
+- Core layout with Header/Nav and Footer (responsive, violet/cyan theme).
 - Homepage with dark, magical Hero (animated stars, gradient text, strong CTAs), Services highlights, Featured products (with ProductCard), Testimonials, Newsletter CTA.
 - Catalog with responsive grid (and list view), advanced filters (category, price, material, color, availability), sorting, mobile drawer, empty state.
 - Product detail pages with media gallery, options, tabs (details/specs/reviews/shipping), customization hooks.
