@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     url: "https://creacionesdelmago.com/catalog",
     images: [
       {
-        url: "/og-image-catalog.jpg",
+        url: "/el-mago.png",
         width: 1200,
         height: 630,
         alt: "Catálogo de Productos 3D",

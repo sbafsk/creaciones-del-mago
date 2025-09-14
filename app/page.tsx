@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "Creaciones del Mago",
     images: [
       {
-        url: "/og-image-homepage.jpg",
+        url: "/el-mago.png",
         width: 1200,
         height: 630,
         alt: "Creaciones del Mago - Impresión 3D Profesional",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Creaciones del Mago - Impresión 3D Profesional",
     description: "De la imaginación a la realidad. Servicios profesionales de impresión 3D en Montevideo, Uruguay.",
-    images: ["/og-image-homepage.jpg"],
+    images: ["/el-mago.png"],
   },
   robots: {
     index: true,

@@ -108,7 +108,7 @@ La elección del material correcto puede hacer la diferencia entre un proyecto e
     author: "El Mago",
     date: "2024-01-15",
     readTime: "8 min",
-    image: "/3d-printing-materials-pla-abs-petg-filaments.jpg",
+    image: "/goku-figure-3d-printed-anime.jpg",
     tags: ["materiales", "PLA", "ABS", "PETG", "TPU", "guía"],
   },
   "optimizar-impresiones": {
@@ -235,7 +235,7 @@ La optimización de impresiones 3D es un proceso continuo de mejora. Cada materi
     author: "El Mago",
     date: "2024-01-10",
     readTime: "6 min",
-    image: "/3d-printer-optimization-settings-quality.jpg",
+    image: "/camping-hook-3d-printed.jpg",
     tags: ["optimización", "técnicas", "calidad", "velocidad", "configuración"],
   },
 }
@@ -304,7 +304,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
     },
     publisher: {
       name: "Creaciones del Mago",
-      logo: "https://creacionesdelmago.com/logo.png",
+      logo: "https://creacionesdelmago.com/el-mago.png",
     },
   })
 
