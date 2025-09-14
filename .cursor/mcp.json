@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "creaciones-del-mago-docs": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-filesystem", "./docs"]
+    },
+    "creaciones-del-mago-standards": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-filesystem", "./standards"]
+    },
+    "creaciones-del-mago-src": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-filesystem", "./app", "./components", "./lib", "./hooks"]
+    }
+  }
+}
