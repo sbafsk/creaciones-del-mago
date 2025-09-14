@@ -2,7 +2,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
-import { Wand2, MapPin, Mail, Phone, Instagram, Facebook, Twitter } from "lucide-react"
+import { MapPin, Mail, Phone, Instagram, Facebook, Twitter } from "lucide-react"
 
 const footerSections = {
   shop: {
@@ -44,7 +44,6 @@ export function SiteFooter() {
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center space-x-2 mb-4">
-              <Wand2 className="h-8 w-8 text-primary" />
               <span className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 Creaciones del Mago
               </span>

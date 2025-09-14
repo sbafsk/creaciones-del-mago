@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Search, ShoppingCart, Menu, Wand2, MessageCircle } from "lucide-react"
+import { Search, ShoppingCart, Menu, MessageCircle } from "lucide-react"
 import { useI18n } from "@/hooks/use-i18n"
 
 export function SiteHeader() {
@@ -39,7 +39,6 @@ export function SiteHeader() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 group">
             <div className="relative">
-              <Wand2 className="h-8 w-8 text-primary group-hover:text-accent transition-colors" />
               <div className="absolute -inset-1 bg-primary/20 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
             <span className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
