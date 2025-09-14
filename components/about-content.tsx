@@ -80,7 +80,7 @@ export function AboutContent() {
           </p>
           <div className="flex items-center justify-center mb-8">
             <Image
-              src="/images/el-mago.png"
+              src="/el-mago.png"
               alt="El Mago - Mascota de Creaciones del Mago"
               width={120}
               height={120}
@@ -131,7 +131,7 @@ export function AboutContent() {
           </div>
           <div className="relative">
             <Image
-              src="/3d-printing-workshop-montevideo-uruguay-modern-equ.jpg"
+              src="/el-mago.png"
               alt="Taller de Creaciones del Mago"
               width={500}
               height={400}

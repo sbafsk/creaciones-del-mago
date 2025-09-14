@@ -56,9 +56,9 @@ const products: Record<string, ProductDetail> = {
     tags: ["liviano", "resistente"],
     images: [
       "/camping-hook-3d-printed.jpg",
-      "/camping-hook-detail-1.jpg",
-      "/camping-hook-detail-2.jpg",
-      "/camping-hook-detail-3.jpg",
+      "/camping-hook-3d-printed.jpg",
+      "/camping-hook-3d-printed.jpg",
+      "/camping-hook-3d-printed.jpg",
     ],
     shortDescription: "Gancho resistente y liviano impreso en PETG para tu próxima aventura.",
     fullDescription:
@@ -96,9 +96,9 @@ const products: Record<string, ProductDetail> = {
     tags: ["anime", "coleccionable"],
     images: [
       "/goku-figure-3d-printed-anime.jpg",
-      "/goku-figure-detail-1.jpg",
-      "/goku-figure-detail-2.jpg",
-      "/goku-figure-detail-3.jpg",
+      "/goku-figure-3d-printed-anime.jpg",
+      "/goku-figure-3d-printed-anime.jpg",
+      "/goku-figure-3d-printed-anime.jpg",
     ],
     shortDescription: "Figura detallada de Goku en pose icónica, pintada a mano.",
     fullDescription:

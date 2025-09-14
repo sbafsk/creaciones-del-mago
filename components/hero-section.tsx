@@ -90,7 +90,7 @@ export function HeroSection() {
               {/* Main wizard image */}
               <div className="relative z-10 bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-slate-700">
                 <Image
-                  src="/images/el-mago.png"
+                  src="/el-mago.png"
                   alt="El Mago - Mascota de Creaciones del Mago"
                   width={400}
                   height={500}

@@ -19,7 +19,7 @@ const blogPosts = [
     author: "El Mago",
     date: "2024-01-15",
     readTime: "8 min",
-    image: "/3d-printing-materials-pla-abs-petg-filaments.jpg",
+    image: "/goku-figure-3d-printed-anime.jpg",
     featured: true,
   },
   {
@@ -31,7 +31,7 @@ const blogPosts = [
     author: "El Mago",
     date: "2024-01-10",
     readTime: "6 min",
-    image: "/3d-printer-optimization-settings-quality.jpg",
+    image: "/camping-hook-3d-printed.jpg",
     featured: false,
   },
   {
@@ -43,7 +43,7 @@ const blogPosts = [
     author: "El Mago",
     date: "2024-01-05",
     readTime: "10 min",
-    image: "/3d-design-cad-modeling-principles.jpg",
+    image: "/spice-organizer-3d-printed-kitchen.jpg",
     featured: false,
   },
   {
@@ -55,7 +55,7 @@ const blogPosts = [
     author: "El Mago",
     date: "2023-12-28",
     readTime: "7 min",
-    image: "/3d-printer-maintenance-cleaning-calibration.jpg",
+    image: "/moon-lamp-3d-printed-decoration.jpg",
     featured: false,
   },
   {
@@ -67,7 +67,7 @@ const blogPosts = [
     author: "El Mago",
     date: "2023-12-20",
     readTime: "5 min",
-    image: "/3d-printing-trends-2024-innovation-technology.jpg",
+    image: "/dragon-puzzle-3d-printed-toy.jpg",
     featured: false,
   },
   {
@@ -79,7 +79,7 @@ const blogPosts = [
     author: "El Mago",
     date: "2023-12-15",
     readTime: "9 min",
-    image: "/3d-print-post-processing-sanding-painting-finishin.jpg",
+    image: "/cannabis-grinder-3d-printed.jpg",
     featured: false,
   },
 ]
