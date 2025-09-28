@@ -19,9 +19,7 @@ const footerSections = {
   company: {
     title: "Empresa",
     links: [
-      { name: "Nosotros", href: "/about" },
       { name: "Servicios", href: "/services" },
-      { name: "Blog", href: "/blog" },
       { name: "Contacto", href: "/contact" },
     ],
   },
@@ -40,7 +38,7 @@ export function SiteFooter() {
   return (
     <footer className="bg-card border-t border-border">
       <div className="container mx-auto max-w-7xl px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center space-x-2 mb-4">
@@ -89,18 +87,6 @@ export function SiteFooter() {
             </div>
           ))}
 
-          {/* Newsletter */}
-          <div>
-            <h3 className="font-semibold text-foreground mb-4">Newsletter</h3>
-            <p className="text-sm text-muted-foreground mb-4">Recibe ofertas especiales y novedades.</p>
-            <div className="space-y-2">
-              <Input placeholder="Tu email" className="bg-background border-border" />
-              <Button size="sm" className="w-full">
-                Suscribirse
-              </Button>
-            </div>
-            <p className="text-xs text-muted-foreground mt-2">No compartimos tu información.</p>
-          </div>
         </div>
 
         <Separator className="my-8" />
