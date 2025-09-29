@@ -140,6 +140,35 @@ export const translations = {
       starRating: "Valoración: {rating} de 5 estrellas",
       priceSlider: "Deslizador de rango de precios",
     },
+    footer: {
+      brand: {
+        description: "Transformamos tu imaginación en realidad. Impresión 3D profesional, diseño CAD y creaciones personalizadas en Montevideo.",
+        copyright: "© 2024 Creaciones del Mago. Todos los derechos reservados."
+      },
+      sections: {
+        shop: "Tienda",
+        company: "Empresa",
+        support: "Soporte"
+      },
+      newsletter: {
+        title: "Newsletter",
+        description: "Recibe ofertas especiales y novedades.",
+        placeholder: "Tu email",
+        button: "Suscribirse",
+        disclaimer: "No compartimos tu información."
+      }
+    },
+    sections: {
+      services: {
+        title: "Nuestros Servicios",
+        subtitle: "Combinamos creatividad, tecnología y experiencia para dar vida a tus ideas más ambiciosas."
+      },
+      featuredProducts: {
+        title: "Productos Destacados",
+        subtitle: "Descubre nuestras creaciones más populares, desde utilidades prácticas hasta piezas de colección únicas.",
+        viewAll: "Ver Todo el Catálogo"
+      }
+    },
   },
 }
 

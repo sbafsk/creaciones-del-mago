@@ -28,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" className={`${syne.variable} antialiased`}>
+    <html lang="es" className={`${syne.variable} antialiased`} suppressHydrationWarning>
       <body>
         <ErrorBoundary>
           <I18nProvider>

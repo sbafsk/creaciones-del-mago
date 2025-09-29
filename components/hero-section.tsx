@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight, Sparkles } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { HERO_CONTENT } from "@/lib/constants"
 
 export function HeroSection() {
   return (
@@ -28,29 +29,28 @@ export function HeroSection() {
           <div className="text-center lg:text-left">
             <div className="inline-flex items-center space-x-2 bg-violet-600/10 border border-violet-600/20 rounded-full px-4 py-2 mb-6">
               <Sparkles className="h-4 w-4 text-violet-400" />
-              <span className="text-sm font-medium text-violet-200">Impresión 3D Profesional</span>
+              <span className="text-sm font-medium text-violet-200">{HERO_CONTENT.badge}</span>
             </div>
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 text-balance">
-              De la{" "}
+              {HERO_CONTENT.title.part1}{" "}
               <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
-                Imaginación
+                {HERO_CONTENT.title.highlight1}
               </span>{" "}
-              a la{" "}
+              {HERO_CONTENT.title.part2}{" "}
               <span className="bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">
-                Realidad
+                {HERO_CONTENT.title.highlight2}
               </span>
             </h1>
 
             <p className="text-xl text-slate-100 mb-8 max-w-2xl text-pretty">
-              Solución de problemas, impresión 3D, diseño CAD, juguetes y anime. Transformamos tus ideas en objetos
-              reales con la magia de la tecnología.
+              {HERO_CONTENT.subtitle}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button asChild size="lg" className="bg-violet-600 hover:bg-violet-700 glow-primary">
-                <Link href="/catalog">
-                  Explorar Catálogo
+                <Link href={HERO_CONTENT.cta.primary.href}>
+                  {HERO_CONTENT.cta.primary.text}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -60,24 +60,18 @@ export function HeroSection() {
                 size="lg"
                 className="border-cyan-500 text-cyan-400 hover:bg-cyan-500/10 bg-slate-800/50 backdrop-blur-sm"
               >
-                <Link href="/custom-order">Diseño Personalizado</Link>
+                <Link href={HERO_CONTENT.cta.secondary.href}>{HERO_CONTENT.cta.secondary.text}</Link>
               </Button>
             </div>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-8 mt-12 pt-8 border-t border-slate-700">
-              <div className="text-center lg:text-left">
-                <div className="text-2xl font-bold text-white">500+</div>
-                <div className="text-sm text-slate-300">Proyectos Completados</div>
-              </div>
-              <div className="text-center lg:text-left">
-                <div className="text-2xl font-bold text-white">48h</div>
-                <div className="text-sm text-slate-300">Tiempo Promedio</div>
-              </div>
-              <div className="text-center lg:text-left">
-                <div className="text-2xl font-bold text-white">100%</div>
-                <div className="text-sm text-slate-300">Satisfacción</div>
-              </div>
+              {HERO_CONTENT.stats.map((stat, index) => (
+                <div key={index} className="text-center lg:text-left">
+                  <div className="text-2xl font-bold text-white">{stat.value}</div>
+                  <div className="text-sm text-slate-300">{stat.label}</div>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -90,10 +84,10 @@ export function HeroSection() {
               {/* Main wizard image */}
               <div className="relative z-10 bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-slate-700">
                 <Image
-                  src="/el-mago.png"
-                  alt="El Mago - Mascota de Creaciones del Mago"
-                  width={400}
-                  height={500}
+                  src={HERO_CONTENT.image.src}
+                  alt={HERO_CONTENT.image.alt}
+                  width={HERO_CONTENT.image.width}
+                  height={HERO_CONTENT.image.height}
                   className="w-full h-auto"
                   priority
                 />

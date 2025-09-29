@@ -6,44 +6,33 @@ import { TestimonialsSection } from "@/components/testimonials-section"
 import { NewsletterCTA } from "@/components/newsletter-cta"
 import { StructuredData } from "@/components/structured-data"
 import { generateLocalBusinessSchema } from "@/lib/seo"
+import { SEO_CONFIG, BUSINESS_INFO } from "@/lib/constants"
 
 export const metadata: Metadata = {
-  title: "Creaciones del Mago - Impresión 3D Profesional | Montevideo, Uruguay",
-  description:
-    "De la imaginación a la realidad. Servicios profesionales de impresión 3D, diseño CAD, juguetes personalizados y figuras de anime en Montevideo, Uruguay.",
-  keywords: [
-    "impresión 3D",
-    "Montevideo",
-    "Uruguay",
-    "diseño 3D",
-    "prototipado",
-    "figuras anime",
-    "juguetes personalizados",
-    "PLA",
-    "ABS",
-    "PETG",
-  ],
+  title: SEO_CONFIG.title.main,
+  description: SEO_CONFIG.description,
+  keywords: SEO_CONFIG.keywords,
   openGraph: {
-    title: "Creaciones del Mago - Impresión 3D Profesional",
-    description: "De la imaginación a la realidad. Servicios profesionales de impresión 3D en Montevideo, Uruguay.",
-    url: "https://creacionesdelmago.com",
-    siteName: "Creaciones del Mago",
+    title: SEO_CONFIG.title.short,
+    description: SEO_CONFIG.description,
+    url: SEO_CONFIG.urls.base,
+    siteName: BUSINESS_INFO.name,
     images: [
       {
-        url: "/el-mago.png",
-        width: 1200,
-        height: 630,
-        alt: "Creaciones del Mago - Impresión 3D Profesional",
+        url: SEO_CONFIG.images.og,
+        width: SEO_CONFIG.images.width,
+        height: SEO_CONFIG.images.height,
+        alt: SEO_CONFIG.title.short,
       },
     ],
-    locale: "es_UY",
+    locale: SEO_CONFIG.locale.main,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Creaciones del Mago - Impresión 3D Profesional",
-    description: "De la imaginación a la realidad. Servicios profesionales de impresión 3D en Montevideo, Uruguay.",
-    images: ["/el-mago.png"],
+    title: SEO_CONFIG.title.short,
+    description: SEO_CONFIG.description,
+    images: [SEO_CONFIG.images.twitter],
   },
   robots: {
     index: true,
@@ -57,36 +46,35 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://creacionesdelmago.com",
+    canonical: SEO_CONFIG.urls.canonical,
     languages: {
-      "es-UY": "https://creacionesdelmago.com",
-      en: "https://creacionesdelmago.com/en",
+      "es-UY": SEO_CONFIG.urls.base,
+      en: `${SEO_CONFIG.urls.base}/en`,
     },
   },
 }
 
 const localBusinessData = generateLocalBusinessSchema({
-  name: "Creaciones del Mago",
-  description:
-    "Estudio profesional de impresión 3D especializado en prototipado, diseño CAD, juguetes personalizados y figuras de anime en Montevideo, Uruguay.",
-  url: "https://creacionesdelmago.com",
-  telephone: "+598 99 123 456",
-  email: "info@creacionesdelmago.com",
+  name: BUSINESS_INFO.name,
+  description: BUSINESS_INFO.description.long,
+  url: SEO_CONFIG.urls.base,
+  telephone: BUSINESS_INFO.contact.phone,
+  email: BUSINESS_INFO.contact.email,
   address: {
-    streetAddress: "Av. 18 de Julio 1234",
-    addressLocality: "Montevideo",
-    addressRegion: "Montevideo",
-    postalCode: "11200",
-    addressCountry: "UY",
+    streetAddress: BUSINESS_INFO.contact.address.street,
+    addressLocality: BUSINESS_INFO.contact.address.city,
+    addressRegion: BUSINESS_INFO.contact.address.region,
+    postalCode: BUSINESS_INFO.contact.address.postalCode,
+    addressCountry: BUSINESS_INFO.contact.address.countryCode,
   },
   geo: {
-    latitude: -34.9011,
-    longitude: -56.1645,
+    latitude: BUSINESS_INFO.location.latitude,
+    longitude: BUSINESS_INFO.location.longitude,
   },
-  openingHours: ["Mo-Fr 09:00-18:00", "Sa 10:00-14:00"],
-  priceRange: "$500-$10000",
-  paymentAccepted: ["Cash", "Credit Card", "Mercado Pago"],
-  currenciesAccepted: ["UYU"],
+  openingHours: [BUSINESS_INFO.hours.weekdays, BUSINESS_INFO.hours.saturday],
+  priceRange: BUSINESS_INFO.pricing.range,
+  paymentAccepted: BUSINESS_INFO.pricing.acceptedPayments,
+  currenciesAccepted: BUSINESS_INFO.pricing.acceptedCurrencies,
 })
 
 export default function HomePage() {
