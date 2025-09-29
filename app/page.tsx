@@ -2,8 +2,6 @@ import type { Metadata } from "next"
 import { HeroSection } from "@/components/hero-section"
 import { ServicesHighlights } from "@/components/services-highlights"
 import { FeaturedProducts } from "@/components/featured-products"
-import { TestimonialsSection } from "@/components/testimonials-section"
-import { NewsletterCTA } from "@/components/newsletter-cta"
 import { StructuredData } from "@/components/structured-data"
 import { generateLocalBusinessSchema } from "@/lib/seo"
 
@@ -96,8 +94,6 @@ export default function HomePage() {
       <HeroSection />
       <ServicesHighlights />
       <FeaturedProducts />
-      <TestimonialsSection />
-      <NewsletterCTA />
     </>
   )
 }

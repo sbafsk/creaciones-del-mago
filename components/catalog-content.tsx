@@ -1,12 +1,16 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useSearchParams } from "next/navigation"
 import { Section } from "@/components/section"
 import { FiltersSidebar } from "@/components/filters-sidebar"
 import { ProductGrid } from "@/components/product-grid"
+import { Breadcrumbs } from "@/components/breadcrumbs"
 import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Filter, Grid, List } from "lucide-react"
+import { Filter, Grid, List, Mountain, Gamepad2, ChefHat, Gift, Puzzle, Leaf } from "lucide-react"
+import Link from "next/link"
 
 interface Product {
   id: string
@@ -21,6 +25,7 @@ interface Product {
   stockStatus: "in_stock" | "low_stock" | "out_of_stock"
   isNew?: boolean
   isPopular?: boolean
+  isFeatured?: boolean
   material?: string
   color?: string
 }
@@ -39,6 +44,7 @@ const allProducts: Product[] = [
     shortDescription: "Gancho resistente y liviano impreso en PETG para tu próxima aventura.",
     stockStatus: "in_stock",
     isNew: true,
+    isFeatured: true,
     material: "PETG",
     color: "Negro",
   },
@@ -54,6 +60,7 @@ const allProducts: Product[] = [
     shortDescription: "Figura detallada de Goku en pose icónica, pintada a mano.",
     stockStatus: "in_stock",
     isPopular: true,
+    isFeatured: true,
     material: "PLA",
     color: "Multicolor",
   },
@@ -82,6 +89,7 @@ const allProducts: Product[] = [
     images: ["/moon-lamp-3d-printed-decoration.jpg"],
     shortDescription: "Lámpara con forma de luna, textura realista e iluminación LED suave.",
     stockStatus: "low_stock",
+    isFeatured: true,
     material: "PLA",
     color: "Blanco",
   },
@@ -143,10 +151,110 @@ const allProducts: Product[] = [
   },
 ]
 
+// Product categories with icons and descriptions
+const categories = [
+  {
+    id: "camping",
+    name: "Camping & Outdoor",
+    description: "Accesorios resistentes para tus aventuras al aire libre",
+    icon: Mountain,
+    count: allProducts.filter(p => p.category === "Camping & Outdoor").length,
+    color: "bg-green-500",
+    href: "/catalog?category=camping"
+  },
+  {
+    id: "anime",
+    name: "Anime & Geek",
+    description: "Figuras y collectibles de tus series favoritas",
+    icon: Gamepad2,
+    count: allProducts.filter(p => p.category === "Anime & Geek").length,
+    color: "bg-purple-500",
+    href: "/catalog?category=anime"
+  },
+  {
+    id: "kitchen",
+    name: "Cocina & Hogar",
+    description: "Soluciones prácticas para tu hogar y cocina",
+    icon: ChefHat,
+    count: allProducts.filter(p => p.category === "Cocina & Hogar").length,
+    color: "bg-orange-500",
+    href: "/catalog?category=kitchen"
+  },
+  {
+    id: "decor",
+    name: "Decoración & Regalos",
+    description: "Piezas únicas para decorar y regalar",
+    icon: Gift,
+    count: allProducts.filter(p => p.category === "Decoración & Regalos").length,
+    color: "bg-pink-500",
+    href: "/catalog?category=decor"
+  },
+  {
+    id: "toys",
+    name: "Juguetes & Figuras",
+    description: "Juguetes educativos y figuras articuladas",
+    icon: Puzzle,
+    count: allProducts.filter(p => p.category === "Juguetes & Figuras").length,
+    color: "bg-blue-500",
+    href: "/catalog?category=toys"
+  },
+  {
+    id: "cannabis",
+    name: "Accesorios Cannabis",
+    description: "Accesorios de alta calidad y diseño personalizable",
+    icon: Leaf,
+    count: allProducts.filter(p => p.category === "Accesorios Cannabis").length,
+    color: "bg-emerald-500",
+    href: "/catalog?category=cannabis"
+  }
+]
+
 export function CatalogContent() {
   const [filteredProducts, setFilteredProducts] = useState(allProducts)
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid")
   const [isFilterOpen, setIsFilterOpen] = useState(false)
+  const [currentCategory, setCurrentCategory] = useState<string | null>(null)
+  const searchParams = useSearchParams()
+
+  // Handle URL parameters on component mount
+  useEffect(() => {
+    const categoryParam = searchParams.get('category')
+    if (categoryParam) {
+      setCurrentCategory(categoryParam)
+      // Apply category filter
+      handleFilterChange({ category: getCategoryNameFromParam(categoryParam) })
+    }
+  }, [searchParams])
+
+  // Helper function to get category name from URL parameter
+  const getCategoryNameFromParam = (param: string): string => {
+    const categoryMap: { [key: string]: string } = {
+      'camping': 'Camping & Outdoor',
+      'anime': 'Anime & Geek',
+      'kitchen': 'Cocina & Hogar',
+      'decor': 'Decoración & Regalos',
+      'toys': 'Juguetes & Figuras',
+      'cannabis': 'Accesorios Cannabis'
+    }
+    return categoryMap[param] || ''
+  }
+
+  // Generate breadcrumb items
+  type BreadcrumbItem = { label: string; href?: string; isActive?: boolean }
+  const getBreadcrumbItems = (): BreadcrumbItem[] => {
+    const items: BreadcrumbItem[] = [
+      { label: "Catálogo", href: "/catalog" }
+    ]
+
+    if (currentCategory) {
+      const category = categories.find(cat => cat.id === currentCategory)
+      if (category) {
+        items.push({ label: category.name, isActive: true })
+      }
+    }
+
+    return items
+  }
 
   const handleFilterChange = (filters: {
     category?: string
@@ -224,7 +332,68 @@ export function CatalogContent() {
         </div>
       </Section>
 
+      {/* Category Cards - Only show if no specific category is selected */}
+      {!currentCategory && (
+        <Section className="bg-background">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Explora por Categorías</h2>
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              Descubre productos organizados por categorías para encontrar exactamente lo que buscas
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {categories.map((category) => (
+              <Link key={category.id} href={category.href}>
+                <Card className="group hover:shadow-lg transition-all duration-300 border-border hover:border-violet-600/50 cursor-pointer h-full">
+                  <CardContent className="p-6">
+                    <div className="flex items-start space-x-4">
+                      <div className={`inline-flex items-center justify-center w-12 h-12 rounded-lg transition-colors ${category.id === 'camping' ? 'bg-green-500/10 group-hover:bg-green-500/20' :
+                          category.id === 'anime' ? 'bg-purple-500/10 group-hover:bg-purple-500/20' :
+                            category.id === 'kitchen' ? 'bg-orange-500/10 group-hover:bg-orange-500/20' :
+                              category.id === 'decor' ? 'bg-pink-500/10 group-hover:bg-pink-500/20' :
+                                category.id === 'toys' ? 'bg-blue-500/10 group-hover:bg-blue-500/20' :
+                                  'bg-emerald-500/10 group-hover:bg-emerald-500/20'
+                        }`}>
+                        <category.icon className={`h-6 w-6 ${category.id === 'camping' ? 'text-green-600' :
+                            category.id === 'anime' ? 'text-purple-600' :
+                              category.id === 'kitchen' ? 'text-orange-600' :
+                                category.id === 'decor' ? 'text-pink-600' :
+                                  category.id === 'toys' ? 'text-blue-600' :
+                                    'text-emerald-600'
+                          }`} />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-violet-600 transition-colors">
+                          {category.name}
+                        </h3>
+                        <p className="text-sm text-muted-foreground mb-3 text-pretty">
+                          {category.description}
+                        </p>
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs text-muted-foreground">
+                            {category.count} producto{category.count !== 1 ? 's' : ''}
+                          </span>
+                          <span className="text-xs text-violet-600 font-medium group-hover:underline">
+                            Ver todos →
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
+        </Section>
+      )}
+
       <div className="container mx-auto max-w-7xl px-4 py-8">
+        {/* Breadcrumbs */}
+        <div className="mb-6">
+          <Breadcrumbs items={getBreadcrumbItems()} />
+        </div>
+
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Desktop Filters Sidebar */}
           <div className="hidden lg:block w-80 flex-shrink-0">
