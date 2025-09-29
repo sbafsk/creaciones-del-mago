@@ -3,7 +3,6 @@ import { ProductCard } from "@/components/product-card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
-// Mock featured products data
 interface Product {
   id: string
   title: string
@@ -17,9 +16,13 @@ interface Product {
   stockStatus: "in_stock" | "low_stock" | "out_of_stock"
   isNew?: boolean
   isPopular?: boolean
+  isFeatured?: boolean
+  material?: string
+  color?: string
 }
 
-const featuredProducts: Product[] = [
+// Extended products data - this should match catalog-content.tsx
+const allProducts: Product[] = [
   {
     id: "camping-hook-001",
     title: "Gancho Ultraliviano Camping",
@@ -32,6 +35,9 @@ const featuredProducts: Product[] = [
     shortDescription: "Gancho resistente y liviano impreso en PETG para tu próxima aventura.",
     stockStatus: "in_stock",
     isNew: true,
+    isFeatured: true,
+    material: "PETG",
+    color: "Negro",
   },
   {
     id: "anime-figure-001",
@@ -45,6 +51,9 @@ const featuredProducts: Product[] = [
     shortDescription: "Figura detallada de Goku en pose icónica, pintada a mano.",
     stockStatus: "in_stock",
     isPopular: true,
+    isFeatured: true,
+    material: "PLA",
+    color: "Multicolor",
   },
   {
     id: "kitchen-organizer-001",
@@ -57,6 +66,8 @@ const featuredProducts: Product[] = [
     images: ["/spice-organizer-3d-printed-kitchen.jpg"],
     shortDescription: "Organizador modular para especias, diseño minimalista y funcional.",
     stockStatus: "in_stock",
+    material: "PLA",
+    color: "Blanco",
   },
   {
     id: "decor-lamp-001",
@@ -69,6 +80,9 @@ const featuredProducts: Product[] = [
     images: ["/moon-lamp-3d-printed-decoration.jpg"],
     shortDescription: "Lámpara con forma de luna, textura realista e iluminación LED suave.",
     stockStatus: "low_stock",
+    isFeatured: true,
+    material: "PLA",
+    color: "Blanco",
   },
   {
     id: "toy-puzzle-001",
@@ -81,6 +95,8 @@ const featuredProducts: Product[] = [
     images: ["/dragon-puzzle-3d-printed-toy.jpg"],
     shortDescription: "Puzzle 3D articulado en forma de dragón, perfecto para todas las edades.",
     stockStatus: "in_stock",
+    material: "PLA",
+    color: "Verde",
   },
   {
     id: "cannabis-grinder-001",
@@ -93,8 +109,13 @@ const featuredProducts: Product[] = [
     images: ["/cannabis-grinder-3d-printed.jpg"],
     shortDescription: "Grinder de alta calidad con diseño personalizable y acabado suave.",
     stockStatus: "in_stock",
+    material: "PETG",
+    color: "Negro",
   },
 ]
+
+// Filter only featured products
+const featuredProducts = allProducts.filter(product => product.isFeatured)
 
 export function FeaturedProducts() {
   return (

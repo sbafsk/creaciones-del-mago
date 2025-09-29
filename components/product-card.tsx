@@ -4,7 +4,7 @@ import { memo, useCallback } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Star, ShoppingCart, Eye } from "lucide-react"
+import { Star, ShoppingCart, Eye, Crown } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useI18n } from "@/hooks/use-i18n"
@@ -22,6 +22,7 @@ interface Product {
   stockStatus: "in_stock" | "low_stock" | "out_of_stock"
   isNew?: boolean
   isPopular?: boolean
+  isFeatured?: boolean
 }
 
 interface ProductCardProps {
@@ -51,6 +52,12 @@ const ProductCardComponent = ({ product, onAddToCart }: ProductCardProps) => {
 
         {/* Badges */}
         <div className="absolute top-3 left-3 flex flex-col gap-2">
+          {product.isFeatured && (
+            <Badge className="bg-yellow-600 hover:bg-yellow-700 text-black font-bold">
+              <Crown className="h-3 w-3 mr-1" />
+              Destacado
+            </Badge>
+          )}
           {product.isNew && <Badge className="bg-green-600 hover:bg-green-700">{t("products.new")}</Badge>}
           {product.isPopular && <Badge className="bg-orange-600 hover:bg-orange-700">{t("products.popular")}</Badge>}
           {product.stockStatus === "low_stock" && <Badge variant="destructive">{t("products.lowStock")}</Badge>}
