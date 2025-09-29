@@ -145,7 +145,10 @@ export function HeroSection() {
           {/* Hero Content */}
           <div className="text-center lg:text-left">
             <div className="inline-flex items-center space-x-2 bg-violet-600/10 border border-violet-600/20 rounded-full px-4 py-2 mb-6 transition-all duration-500">
-              <currentSlideData.badge.icon className="h-4 w-4 text-violet-400" />
+              {(() => {
+                const BadgeIcon = currentSlideData.badge.icon
+                return <BadgeIcon className="h-4 w-4 text-violet-400" />
+              })()}
               <span className="text-sm font-medium text-violet-200">{currentSlideData.badge.text}</span>
             </div>
 
@@ -178,7 +181,10 @@ export function HeroSection() {
                 >
                   <Link href={button.href}>
                     {button.text}
-                    {button.icon && <button.icon className="ml-2 h-5 w-5" />}
+                    {button.icon && (() => {
+                      const ButtonIcon = button.icon
+                      return <ButtonIcon className="ml-2 h-5 w-5" />
+                    })()}
                   </Link>
                 </Button>
               ))}
@@ -202,7 +208,10 @@ export function HeroSection() {
               <div className="relative z-10 bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-12 border border-slate-700 transition-all duration-500">
                 {/* Central icon representing current slide */}
                 <div className="flex items-center justify-center h-64">
-                  <currentSlideData.badge.icon className="h-32 w-32 text-violet-400 animate-pulse" />
+                  {(() => {
+                    const CentralIcon = currentSlideData.badge.icon
+                    return <CentralIcon className="h-32 w-32 text-violet-400 animate-pulse" />
+                  })()}
                 </div>
 
                 {/* Decorative text */}
