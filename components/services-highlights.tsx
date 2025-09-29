@@ -1,37 +1,21 @@
+"use client"
+
 import { Card, CardContent } from "@/components/ui/card"
 import { Section } from "@/components/section"
-import { Printer, Palette, Wrench } from "lucide-react"
+import { SERVICES_CONTENT } from "@/lib/constants"
+import { useI18n } from "@/hooks/use-i18n"
 
-const services = [
-  {
-    icon: Printer,
-    title: "Impresión 3D Profesional",
-    description: "Materiales de alta calidad como PLA, PETG, TPU y más. Precisión milimétrica en cada proyecto.",
-    features: ["Múltiples materiales", "Alta precisión", "Acabado profesional"],
-  },
-  {
-    icon: Palette,
-    title: "Diseño CAD Personalizado",
-    description: "Creamos modelos 3D únicos desde tu idea. Desde prototipos hasta piezas decorativas complejas.",
-    features: ["Diseño desde cero", "Modificaciones", "Optimización para impresión"],
-  },
-  {
-    icon: Wrench,
-    title: "Solución de Problemas",
-    description:
-      "Piezas de repuesto, herramientas personalizadas y soluciones creativas para tus necesidades específicas.",
-    features: ["Piezas de repuesto", "Herramientas únicas", "Soluciones creativas"],
-  },
-]
 
 export function ServicesHighlights() {
+  const { t } = useI18n()
+
   return (
     <Section
-      title="Nuestros Servicios"
-      subtitle="Combinamos creatividad, tecnología y experiencia para dar vida a tus ideas más ambiciosas."
+      title={t("sections.services.title")}
+      subtitle={t("sections.services.subtitle")}
     >
       <div className="grid md:grid-cols-3 gap-8">
-        {services.map((service, index) => (
+        {SERVICES_CONTENT.services.map((service, index) => (
           <Card
             key={index}
             className="group hover:shadow-lg transition-all duration-300 border-border hover:border-violet-600/50"
