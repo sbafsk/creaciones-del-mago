@@ -3,7 +3,6 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Sparkles, ChevronLeft, ChevronRight } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
 import { useState, useEffect } from "react"
 
 const slides = [
@@ -21,8 +20,6 @@ const slides = [
       { href: "/catalog", text: "Explorar Catálogo", variant: "primary", icon: ArrowRight },
       { href: "/services", text: "Nuestros Servicios", variant: "outline" }
     ],
-    image: "/el-mago.png",
-    imageAlt: "El Mago - Mascota de Creaciones del Mago",
     stats: [
       { value: "500+", label: "Proyectos Completados" },
       { value: "48h", label: "Tiempo Promedio" },
@@ -43,8 +40,6 @@ const slides = [
       { href: "/catalog", text: "Ver Catálogo", variant: "primary", icon: ArrowRight },
       { href: "/services", text: "Servicios", variant: "outline" }
     ],
-    image: "/el-mago.png",
-    imageAlt: "Productos 3D únicos",
     stats: [
       { value: "200+", label: "Productos Disponibles" },
       { value: "24h", label: "Envío Rápido" },
@@ -65,8 +60,6 @@ const slides = [
       { href: "/services", text: "Ver Servicios", variant: "primary", icon: ArrowRight },
       { href: "/contact", text: "Contactar", variant: "outline" }
     ],
-    image: "/el-mago.png",
-    imageAlt: "Servicios profesionales de impresión 3D",
     stats: [
       { value: "7", label: "Tipos de Material" },
       { value: "0.1mm", label: "Precisión Máxima" },
@@ -202,22 +195,21 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Hero Image */}
+          {/* Hero Visual Elements */}
           <div className="relative">
             <div className="relative w-full max-w-lg mx-auto">
-              {/* Glow effect behind image */}
-              <div className="absolute inset-0 bg-gradient-to-r from-violet-600/30 to-cyan-600/30 rounded-full blur-3xl"></div>
+              {/* Large decorative elements */}
+              <div className="relative z-10 bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-12 border border-slate-700 transition-all duration-500">
+                {/* Central icon representing current slide */}
+                <div className="flex items-center justify-center h-64">
+                  <currentSlideData.badge.icon className="h-32 w-32 text-violet-400 animate-pulse" />
+                </div>
 
-              {/* Main image */}
-              <div className="relative z-10 bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-slate-700 transition-all duration-500">
-                <Image
-                  src={currentSlideData.image}
-                  alt={currentSlideData.imageAlt}
-                  width={400}
-                  height={500}
-                  className="w-full h-auto transition-all duration-500"
-                  priority={currentSlide === 0}
-                />
+                {/* Decorative text */}
+                <div className="text-center mt-6">
+                  <h3 className="text-2xl font-bold text-white mb-2">{currentSlideData.badge.text}</h3>
+                  <div className="h-1 w-16 bg-gradient-to-r from-violet-400 to-cyan-400 mx-auto rounded-full"></div>
+                </div>
               </div>
 
               {/* Floating elements */}
@@ -226,6 +218,14 @@ export function HeroSection() {
               </div>
               <div className="absolute -bottom-4 -left-4 bg-cyan-600 rounded-full p-3 animate-pulse">
                 <Sparkles className="h-6 w-6 text-white" />
+              </div>
+
+              {/* Additional floating icons */}
+              <div className="absolute top-1/3 -left-8 bg-cyan-500/20 rounded-full p-2 animate-bounce delay-300">
+                <Sparkles className="h-4 w-4 text-cyan-300" />
+              </div>
+              <div className="absolute bottom-1/3 -right-8 bg-violet-500/20 rounded-full p-2 animate-bounce delay-700">
+                <Sparkles className="h-4 w-4 text-violet-300" />
               </div>
             </div>
           </div>
