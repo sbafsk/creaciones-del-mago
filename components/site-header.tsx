@@ -19,9 +19,6 @@ export function SiteHeader() {
     { name: t("navigation.home"), href: "/" },
     { name: t("navigation.catalog"), href: "/catalog" },
     { name: t("navigation.services"), href: "/services" },
-    { name: t("navigation.customOrder"), href: "/custom-order" },
-    { name: t("navigation.blog"), href: "/blog" },
-    { name: t("navigation.about"), href: "/about" },
     { name: t("navigation.contact"), href: "/contact" },
   ], [t])
 

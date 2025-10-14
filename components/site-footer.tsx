@@ -2,11 +2,12 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
+import { Input } from "@/components/ui/input"
 import { MapPin, Mail, Phone } from "lucide-react"
 import { FOOTER_CONTENT, BUSINESS_INFO } from "@/lib/constants"
 import { useI18n } from "@/hooks/use-i18n"
+
 
 
 export function SiteFooter() {
@@ -15,7 +16,7 @@ export function SiteFooter() {
   return (
     <footer className="bg-card border-t border-border">
       <div className="container mx-auto max-w-7xl px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center space-x-2 mb-4">

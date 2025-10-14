@@ -1,3 +1,5 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Sparkles } from "lucide-react"
 import Link from "next/link"
@@ -12,12 +14,12 @@ export function HeroSection() {
 
       {/* Animated background stars */}
       <div className="absolute inset-0">
-        <div className="star absolute top-20 left-20 w-1 h-1 bg-white rounded-full"></div>
-        <div className="star absolute top-40 right-32 w-1 h-1 bg-cyan-400 rounded-full"></div>
-        <div className="star absolute bottom-32 left-40 w-1 h-1 bg-violet-400 rounded-full"></div>
-        <div className="star absolute top-60 left-1/3 w-1 h-1 bg-white rounded-full"></div>
-        <div className="star absolute bottom-40 right-20 w-1 h-1 bg-cyan-300 rounded-full"></div>
-        <div className="star absolute top-32 right-1/4 w-1 h-1 bg-violet-300 rounded-full"></div>
+        <div className="star absolute top-20 left-20 w-1 h-1 bg-white rounded-full animate-pulse"></div>
+        <div className="star absolute top-40 right-32 w-1 h-1 bg-cyan-400 rounded-full animate-pulse"></div>
+        <div className="star absolute bottom-32 left-40 w-1 h-1 bg-violet-400 rounded-full animate-pulse"></div>
+        <div className="star absolute top-60 left-1/3 w-1 h-1 bg-white rounded-full animate-pulse"></div>
+        <div className="star absolute bottom-40 right-20 w-1 h-1 bg-cyan-300 rounded-full animate-pulse"></div>
+        <div className="star absolute top-32 right-1/4 w-1 h-1 bg-violet-300 rounded-full animate-pulse"></div>
       </div>
 
       {/* Additional gradient overlay for better text contrast */}
@@ -75,12 +77,9 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Hero Image */}
+          {/* Hero Visual Elements */}
           <div className="relative">
             <div className="relative w-full max-w-lg mx-auto">
-              {/* Glow effect behind image */}
-              <div className="absolute inset-0 bg-gradient-to-r from-violet-600/30 to-cyan-600/30 rounded-full blur-3xl"></div>
-
               {/* Main wizard image */}
               <div className="relative z-10 bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-slate-700">
                 <Image
@@ -99,6 +98,14 @@ export function HeroSection() {
               </div>
               <div className="absolute -bottom-4 -left-4 bg-cyan-600 rounded-full p-3 animate-pulse">
                 <Sparkles className="h-6 w-6 text-white" />
+              </div>
+
+              {/* Additional floating icons */}
+              <div className="absolute top-1/3 -left-8 bg-cyan-500/20 rounded-full p-2 animate-bounce delay-300">
+                <Sparkles className="h-4 w-4 text-cyan-300" />
+              </div>
+              <div className="absolute bottom-1/3 -right-8 bg-violet-500/20 rounded-full p-2 animate-bounce delay-700">
+                <Sparkles className="h-4 w-4 text-violet-300" />
               </div>
             </div>
           </div>
