@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { Suspense } from "react"
 import { CatalogContent } from "@/components/catalog-content"
 
 export const metadata: Metadata = {
@@ -34,5 +35,9 @@ export const metadata: Metadata = {
 }
 
 export default function CatalogPage() {
-  return <CatalogContent />
+  return (
+    <Suspense fallback={<div className="container mx-auto max-w-7xl px-4 py-8">Cargando catálogo...</div>}>
+      <CatalogContent />
+    </Suspense>
+  )
 }
