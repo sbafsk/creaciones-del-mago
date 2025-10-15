@@ -8,11 +8,12 @@ import { Badge } from "@/components/ui/badge"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Search, ShoppingCart, Menu, MessageCircle } from "lucide-react"
 import { useI18n } from "@/hooks/use-i18n"
+import { BUSINESS_INFO, UI_CONSTANTS, ACCESSIBILITY } from "@/lib/constants"
 
 export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false)
   const { t } = useI18n()
-  const cartItemCount = 3 // Mock cart count
+  const cartItemCount = UI_CONSTANTS.cart.mockItemCount
 
   const navigation = useMemo(() => [
     { name: t("navigation.home"), href: "/" },
@@ -39,12 +40,12 @@ export function SiteHeader() {
               <div className="absolute -inset-1 bg-primary/20 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
             <span className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Creaciones del Mago
+              {BUSINESS_INFO.name}
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-6" role="navigation" aria-label="Navegación principal">
+          <nav className="hidden lg:flex items-center space-x-6" role="navigation" aria-label={ACCESSIBILITY.navigation.main}>
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -130,7 +131,7 @@ export function SiteHeader() {
                   </div>
 
                   {/* Mobile Navigation */}
-                  <nav className="flex flex-col space-y-2" role="navigation" aria-label="Navegación móvil">
+                  <nav className="flex flex-col space-y-2" role="navigation" aria-label={ACCESSIBILITY.navigation.mobile}>
                     {navigation.map((item) => (
                       <Link
                         key={item.name}

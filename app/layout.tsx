@@ -17,6 +17,7 @@ const syne = Syne({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://creacionesdelmago.com"),
   title: "Creaciones del Mago - Impresión 3D Profesional en Uruguay",
   description:
     "Servicios profesionales de impresión 3D, diseño CAD y prototipado rápido en Uruguay. Transformamos tus ideas en realidad.",
@@ -28,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" className={`${syne.variable} antialiased`}>
+    <html lang="es" className={`${syne.variable} antialiased`} suppressHydrationWarning>
       <body>
         <ErrorBoundary>
           <I18nProvider>
