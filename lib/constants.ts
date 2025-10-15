@@ -259,7 +259,8 @@ export const SAMPLE_PRODUCTS: Product[] = [
     images: ["/camping-hook-3d-printed.jpg"],
     shortDescription: "Gancho resistente y liviano impreso en PETG para tu próxima aventura.",
     stockStatus: "in_stock",
-    isNew: true
+    isNew: true,
+    isFeatured: true
   },
   {
     id: "anime-figure-001",
@@ -272,7 +273,8 @@ export const SAMPLE_PRODUCTS: Product[] = [
     images: ["/goku-figure-3d-printed-anime.jpg"],
     shortDescription: "Figura detallada de Goku en pose icónica, pintada a mano.",
     stockStatus: "in_stock",
-    isPopular: true
+    isPopular: true,
+    isFeatured: true
   },
   {
     id: "kitchen-organizer-001",
@@ -284,7 +286,8 @@ export const SAMPLE_PRODUCTS: Product[] = [
     tags: ["organizador", "cocina"],
     images: ["/spice-organizer-3d-printed-kitchen.jpg"],
     shortDescription: "Organizador modular para especias, diseño minimalista y funcional.",
-    stockStatus: "in_stock"
+    stockStatus: "in_stock",
+    isFeatured: false
   },
   {
     id: "decor-lamp-001",
@@ -296,7 +299,8 @@ export const SAMPLE_PRODUCTS: Product[] = [
     tags: ["decoración", "LED"],
     images: ["/moon-lamp-3d-printed-decoration.jpg"],
     shortDescription: "Lámpara con forma de luna, textura realista e iluminación LED suave.",
-    stockStatus: "low_stock"
+    stockStatus: "low_stock",
+    isFeatured: false
   },
   {
     id: "toy-puzzle-001",
@@ -308,7 +312,8 @@ export const SAMPLE_PRODUCTS: Product[] = [
     tags: ["puzzle", "dragón"],
     images: ["/dragon-puzzle-3d-printed-toy.jpg"],
     shortDescription: "Puzzle 3D articulado en forma de dragón, perfecto para todas las edades.",
-    stockStatus: "in_stock"
+    stockStatus: "in_stock",
+    isFeatured: false
   },
   {
     id: "cannabis-grinder-001",
@@ -320,7 +325,8 @@ export const SAMPLE_PRODUCTS: Product[] = [
     tags: ["grinder", "personalizable"],
     images: ["/cannabis-grinder-3d-printed.jpg"],
     shortDescription: "Grinder de alta calidad con diseño personalizable y acabado suave.",
-    stockStatus: "in_stock"
+    stockStatus: "in_stock",
+    isFeatured: false
   }
 ]
 
@@ -429,6 +435,9 @@ export interface Product {
   stockStatus: "in_stock" | "low_stock" | "out_of_stock"
   isNew?: boolean
   isPopular?: boolean
+  isFeatured?: boolean
+  material?: string
+  color?: string
 }
 
 export type ProductCategory = keyof typeof PRODUCT_CATEGORIES
